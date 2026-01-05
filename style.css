@@ -1,0 +1,185 @@
+/* ===== BODY ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+nav .logo { font-size: 26px; font-weight: bold; }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #bbb;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover { color: #fff; }
+
+/* ===== HOME ===== */
+.home { text-align: center; padding: 80px 20px; }
+
+.profile-pic-container {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.animated-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: float 5s ease-in-out infinite;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
+
+.home h1 { margin: 20px 0 10px 0; font-size: 42px; }
+.home h1 span { color: #ff8c00; }
+.home p { font-size: 18px; }
+
+/* ===== SECTIONS ===== */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+.section.animate.active { opacity: 1; transform: translateY(0); }
+.section h2 { font-size: 34px; margin-bottom: 30px; color: #fff; position: relative; }
+.section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #ff8c00;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+.section h3 { margin: 20px 0 10px 0; color: #ff8c00; }
+
+/* ===== SKILLS ===== */
+.skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; }
+.skills span {
+    padding: 15px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+}
+.skills span:hover { transform: scale(1.1); }
+
+/* Skill colors */
+.c { background-color: #e84393; color: #fff; }
+.cpp { background-color: #8e44ad; color: #fff; }
+.python { background-color: #27ae60; color: #fff; }
+.power { background-color: #f1c40f; color: #000; }
+.pcb { background-color: #d35400; color: #fff; }
+.control { background-color: #2980b9; color: #fff; }
+.multisim { background-color: #e67e22; color: #fff; }
+.kicad { background-color: #16a085; color: #fff; }
+.altium { background-color: #c0392b; color: #fff; }
+.matlab { background-color: #9b59b6; color: #fff; }
+.plecs { background-color: #f39c12; color: #000; }
+
+/* ===== PROJECT CARDS ===== */
+.cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.card {
+    background-color: #111;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(255,255,255,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    animation: float 5s ease-in-out infinite;
+}
+.card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(255,255,255,0.2); }
+
+/* ===== CERTIFICATES ===== */
+.certificates { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.certificates img {
+    width: 220px; height: 140px; object-fit: cover; border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(255,255,255,0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+.certificates img:hover { transform: scale(1.1); box-shadow: 0 10px 25px rgba(255,255,255,0.2); }
+
+/* ===== CONTACT ===== */
+.contact-icons {
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 20px;
+}
+
+.contact-icons a {
+    color: #fff; 
+    font-size: 18px; 
+    text-decoration: none;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.contact-icons a span {
+    margin-top: 5px;
+    font-size: 16px;
+    word-break: break-word; /* Makes long links wrap nicely */
+    text-align: center;
+}
+
+.contact-icons a:hover { 
+    color: #ff8c00; 
+}
+
+@media (max-width: 768px) {
+    .contact-icons {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    nav ul { flex-direction: column; gap: 15px; }
+    .cards, .skills, .certificates { flex-direction: column; align-items: center; }
+    .profile-pic-container { width: 300px; height: 300px; }
+    .card img { height: 200px; }
+    .certificates img { width: 200px; height: 130px; }
+}
